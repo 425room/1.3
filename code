@@ -1,1 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace zadacha3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 0;
+            char[] a = new char[10] { 'A', 'b', 'C', 'd', 'E', 'f', 'G', 'h', 'I', 'j' };
+
+            Console.Write("Исходный массив: \n");
+            foreach (char i in a)
+                Console.Write("{0} ", i);
+
+            Console.Write("\nВведите, насколько будет сдвинут массив вправо: ");
+            n = Convert.ToInt32(Console.ReadLine());
+
+            int tmp = 0;
+
+            char[] b = new char[a.Length];
+
+            for(int i=0;i<a.Length;i++)
+            {
+                tmp = (i + n ) % a.Length;
+                b[tmp] = a[i];
+            }
+
+            a = b;
+
+            foreach (char i in a)
+                Console.Write("{0} ", i);
+            Console.ReadKey();
+
+        }
+    }
+}
